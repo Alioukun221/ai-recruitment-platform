@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ept-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ept_recrutement
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - ept-network
+
+  ia-service:
+    build:
+      context: ./ServiceIA_final
+      dockerfile: Dockerfile
+    container_name: ept-ia-service
+    restart: always
+    environment:
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ServiceIA_final/save_cvs:/app/save_cvs
+    networks:
+      - ept-network
+
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: ept-backend
+    restart: always
+    depends_on:
+      - mysql
+      - ia-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/ept_recrutement?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      IA_SERVICE_URL: http://ia-service:8000
+      SERVER_URL: http://backend:8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./uploads:/app/uploads
+    networks:
+      - ept-network
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: ept-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "4200:80"
+    networks:
+      - ept-network
+
+networks:
+  ept-network:
+    driver: bridge
+
+volumes:
+  mysql_data:

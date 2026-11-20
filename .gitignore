@@ -1,31 +1,44 @@
 # Global
 .DS_Store
+Thumbs.db
 *.tmp
 *.log
 *.swp
 *.iml
 *.class
 
-# Maven
-backend/target/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+venv/
+ENV/
 
-# IntelliJ / Eclipse / VSCode
+# Maven & Java
+[Bb]ackend/target/
+target/
+*.jar
+*.war
+
+# Angular & Node
+[Ff]rontend/node_modules/
+[Ff]rontend/dist/
+[Ff]rontend/.angular/cache/
+node_modules/
+dist/
+.angular/
+
+# IDEs (IntelliJ, Eclipse, VSCode)
 .idea/
 *.iws
 *.ipr
 *.iml
 .vscode/
 
-# Java
-*.jar
-*.war
-
-# Angular
-frontend/node_modules/
-frontend/dist/
-frontend/.angular/cache/
-
-# Environment
-*.env
-
-
+# Local cv test saves
+ServiceIA_final/save_cvs/
+ServiceIA_final/ia_service.log
+uploads/cvs/*
+!uploads/cvs/.gitkeep
