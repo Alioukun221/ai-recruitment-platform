@@ -34,7 +34,6 @@ An enterprise full-stack recruitment platform developed for **École Polytechniq
   - [AI Webhook & Processing](#ai-webhook--processing)
 - [Domain Enums & Data Models](#-domain-enums--data-models)
 - [Troubleshooting](#-troubleshooting)
-- [Contributing & Commit Conventions](#-contributing--commit-conventions)
 - [Authors & License](#-authors--license)
 
 ---
@@ -631,33 +630,6 @@ spring.servlet.multipart.max-request-size=15MB
 
 ### 4. CORS errors in Angular
 Backend has global CORS configuration enabled via `WebConfig.java`. Ensure Angular's API calls target `http://localhost:8080/api/v1`.
-
----
-
-## 🤝 Contributing & Commit Conventions
-
-When contributing to this repository, please adhere to standard **Conventional Commits** in **English**:
-
-```text
-<type>(<scope>): <short summary in English>
-
-[optional body]
-```
-
-### Allowed types:
-- `feat`: A new feature or endpoint
-- `fix`: A bug fix
-- `docs`: Documentation changes (e.g. README updates)
-- `style`: Formatting, missing semicolons, etc. (no code logic changes)
-- `refactor`: Refactoring production code without behavior changes
-- `test`: Adding or updating tests
-- `chore`: Updating build scripts, dependencies, or configuration
-
-### Contribution workflow:
-1. Fork or create a feature branch: `git checkout -b feat/ai-scoring-refinement`
-2. Make your edits following English variable naming conventions.
-3. Commit with an English message: `git commit -m "feat(ia): improve cv parsing precision for bilingual resumes"`
-4. Push and open a Pull Request.
 
 ---
 
