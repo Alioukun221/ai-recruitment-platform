@@ -11,5 +11,5 @@ export interface CandidateApplicationHistoryDto {
   lastUpdateDate?: string;
   status?: string;
   submitDate?: string;
-  typeContrat?: 'CDD' | 'CDI' | 'STAGE';
+  contractType?: 'CDD' | 'CDI' | 'STAGE';
 }

@@ -209,7 +209,7 @@ export class ListCandidatByOfferComponent implements OnInit {
         app.highestDegree === this.selectedDegree;
 
       const matchesScore = this.minScore === null ||
-        (app.scoreIA !== undefined && app.scoreIA >= this.minScore);
+        (app.aiScore !== undefined && app.aiScore >= this.minScore);
 
       return matchesSearch && matchesStatus && matchesDegree && matchesScore;
     });
@@ -368,7 +368,7 @@ export class ListCandidatByOfferComponent implements OnInit {
         valueB = new Date(valueB).getTime();
       }
 
-      if (column === 'scoreIA') {
+      if (column === 'aiScore') {
         valueA = valueA || 0;
         valueB = valueB || 0;
       }
@@ -549,7 +549,7 @@ export class ListCandidatByOfferComponent implements OnInit {
       app.candidateEmail || '',
       app.highestDegree || '',
       app.majorField || '',
-      (app.scoreIA || 0).toString(),
+      (app.aiScore || 0).toString(),
       this.getStatusLabel(app.status),
       this.formatDate(app.submitDate)
     ]);

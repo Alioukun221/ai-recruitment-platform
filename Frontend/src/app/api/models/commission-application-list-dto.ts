@@ -10,7 +10,7 @@ export interface CommissionApplicationListDto {
   evaluationCount?: number;
   highestDegree?: string;
   id?: number;
-  scoreIA?: number;
+  aiScore?: number;
   specialization?: string;
   submitDate?: string;
 }

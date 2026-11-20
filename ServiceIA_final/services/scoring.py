@@ -139,7 +139,7 @@ class CVScoringService:
 
 
         # === Extraction sélective des données importantes ===
-        competences = ", ".join(cv_data.competences)
+        skills = ", ".join(cv_data.skills)
         tools = ", ".join(cv_data.tools)
         soft_skills = ", ".join(cv_data.soft_skills)
         certifications = ", ".join(cv_data.certifications)
@@ -183,7 +183,7 @@ class CVScoringService:
                 
                 === CV DU CANDIDAT ===
                     Résumé : {summary}
-                    Compétences techniques : {competences}
+                    Technical skills: {skills}
                     Outils : {tools}
                     Soft skills : {soft_skills}
                     Certifications : {certifications}
@@ -211,7 +211,7 @@ class CVScoringService:
                 - **FAIBLE** (0-49): Profil inadapté, faible correspondance
                 
                 ANALYSE DES COMPÉTENCES:
-                - Compare les compétences requises avec competences, tools et soft_skills du CV
+                - Compare les compétences requises with skills, tools et soft_skills du CV
                 - Bonus si compétences additionnelles pertinentes
                 - Pénalité si compétences critiques manquantes
                 
@@ -245,7 +245,7 @@ class CVScoringService:
 
         return ScoringResult(
             score_global=float(scoring_json.get("score_global", 0)),
-            matching_competences=float(scoring_json.get("matching_competences", 0)),
+            matching_skills=float(scoring_json.get("matching_skills", 0)),
             matching_experience=float(scoring_json.get("matching_experience", 0)),
             matching_diploma=float(scoring_json.get("matching_diploma", 0)),
             justification=scoring_json.get("justification", ""),

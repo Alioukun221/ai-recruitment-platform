@@ -3,7 +3,7 @@
 
 export interface CreateEvaluationDto {
   comment?: string;
-  competenceScore: number;
+  technicalSkillScore: number;
   diplomaScore: number;
   experienceScore: number;
   motivationScore: number;

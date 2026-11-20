@@ -46,7 +46,7 @@ public class SubmitApplicationDTO {
     // ---------- STEP 4 : MOTIVATION ----------
     @NotBlank(message = "La motivation pour l'école est obligatoire")
     @Size(max = 2000, message = "La motivation ne doit pas dépasser 2000 caractères")
-    private String motivationEcole;
+    private String schoolMotivation;
 
     @NotBlank(message = "La motivation pour le poste est obligatoire")
     @Size(max = 2000, message = "La motivation ne doit pas dépasser 2000 caractères")

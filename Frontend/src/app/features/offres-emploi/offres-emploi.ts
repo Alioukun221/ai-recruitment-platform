@@ -13,11 +13,11 @@ interface JobOffer {
   jobTitle: string;
   description: string;
   skills: string[];
-  dateLimite: string;
-  datePublication: string;
+  deadline: string;
+  publicationDate: string;
   rating: number;
-  experienceMin: string;
-  niveauEtudeRequis: string;
+  minExperience: string;
+  requiredEducationLevel: string;
   reviews: number;
   projects: number;
   totalSpent: string;
@@ -70,14 +70,14 @@ export class OffresEmploi implements OnInit {
       jobTitle: offer.jobTitle || 'Poste non spécifié',
       description: offer.description || '',
       skills: this.extractSkills(offer),
-      niveauEtudeRequis: this.formatNiveauEtude(offer.niveauEtudeRequis),
-      experienceMin: this.formatExperience(offer.experienceMin),
+      requiredEducationLevel: this.formatNiveauEtude(offer.requiredEducationLevel),
+      minExperience: this.formatExperience(offer.minExperience),
       rating: 0,
-      dateLimite: this.formatDate(offer.dateLimite),
-      datePublication: this.formatDate(offer.datePublication),
+      deadline: this.formatDate(offer.deadline),
+      publicationDate: this.formatDate(offer.publicationDate),
       reviews: offer.applicationCount || 0,
       projects: 0,
-      totalSpent: this.formatContractType(offer.typeContrat)
+      totalSpent: this.formatContractType(offer.contractType)
     }));
   }
 
@@ -134,28 +134,28 @@ export class OffresEmploi implements OnInit {
   private extractSkills(offer: PublicJobOfferListDto): string[] {
     const skills: string[] = [];
 
-    if (offer.niveauEtudeRequis) {
-      skills.push(offer.niveauEtudeRequis);
+    if (offer.requiredEducationLevel) {
+      skills.push(offer.requiredEducationLevel);
     }
 
-    if (offer.experienceMin !== undefined && offer.experienceMin > 0) {
-      skills.push(`${offer.experienceMin} ans d'exp`);
+    if (offer.minExperience !== undefined && offer.minExperience > 0) {
+      skills.push(`${offer.minExperience} ans d'exp`);
     }
 
-    if (offer.typeContrat) {
-      skills.push(offer.typeContrat);
+    if (offer.contractType) {
+      skills.push(offer.contractType);
     }
 
     return skills.length > 0 ? skills : ['Aucune compétence spécifiée'];
   }
 
-  private formatContractType(typeContrat?: 'CDD' | 'CDI' | 'STAGE'): string {
+  private formatContractType(contractType?: 'CDD' | 'CDI' | 'STAGE'): string {
     const mapping = {
       'CDD': 'Contrat à Durée Déterminée',
       'CDI': 'Contrat à Durée Indéterminée',
       'STAGE': 'Stage'
     };
-    return typeContrat ? mapping[typeContrat] : 'Non spécifié';
+    return contractType ? mapping[contractType] : 'Non spécifié';
   }
 
   goToCandidater(id: number) {

@@ -3,7 +3,7 @@
 
 export interface IaScoringResultDto {
   justification?: string;
-  matching_competences?: number;
+  matching_skills?: number;
   matching_diploma?: number;
   matching_experience?: number;
   matching_motivation?: number;

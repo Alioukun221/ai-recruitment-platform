@@ -94,7 +94,7 @@ export class MultiStepFormComponent implements OnInit {
     });
 
     this.step4Form = this.fb.group({
-      motivationEcole: ['', Validators.required],
+      schoolMotivation: ['', Validators.required],
       motivationPosition: ['', Validators.required],
       availableImmediately: [true, Validators.required]
     });
@@ -382,7 +382,7 @@ export class MultiStepFormComponent implements OnInit {
       documents: additionalDocuments.length > 0 ? additionalDocuments : undefined,
 
       // Étape 4: Motivation
-      motivationEcole: this.step4Form.value.motivationEcole,
+      schoolMotivation: this.step4Form.value.schoolMotivation,
       motivationPosition: this.step4Form.value.motivationPosition,
       availableImmediately: this.step4Form.value.availableImmediately,
 
@@ -433,7 +433,7 @@ export class MultiStepFormComponent implements OnInit {
       });
 
 // Étape 4 : motivation
-      formData.append('motivationEcole', this.step4Form.value.motivationEcole);
+      formData.append('schoolMotivation', this.step4Form.value.schoolMotivation);
       formData.append('motivationPosition', this.step4Form.value.motivationPosition);
       formData.append('availableImmediately', String(this.step4Form.value.availableImmediately));
 

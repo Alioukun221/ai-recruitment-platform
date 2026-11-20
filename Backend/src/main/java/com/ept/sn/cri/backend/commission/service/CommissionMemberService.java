@@ -137,7 +137,7 @@ public class CommissionMemberService {
         }
 
         // Mettre à jour les scores
-        evaluation.setCompetenceScore(dto.getCompetenceScore());
+        evaluation.setTechnicalSkillScore(dto.getTechnicalSkillScore());
         evaluation.setExperienceScore(dto.getExperienceScore());
         evaluation.setDiplomaScore(dto.getDiplomaScore());
         evaluation.setMotivationScore(dto.getMotivationScore());
@@ -221,7 +221,7 @@ public class CommissionMemberService {
                 .candidateEmail(application.getEmail())
                 .highestDegree(application.getHighestDegree())
                 .specialization(application.getMajorField())
-                .scoreIA(application.getScoreIA())
+                .aiScore(application.getAiScore())
                 .submitDate(application.getSubmitDate())
                 .cvUrl(application.getCvUrl())
                 .evaluationCount(evaluationCount.intValue())
@@ -258,11 +258,11 @@ public class CommissionMemberService {
                 .highestDegree(application.getHighestDegree())
                 .specialization(application.getMajorField())
                 .cvUrl(application.getCvUrl())
-                .scoreIA(application.getScoreIA())
-                .matchingCompetences(application.getMatchingCompetences())
+                .aiScore(application.getAiScore())
+                .matchingSkills(application.getMatchingSkills())
                 .matchingExperience(application.getMatchingExperience())
                 .matchingDiploma(application.getMatchingDiploma())
-                .justificationIA(application.getJustificationIA())
+                .aiJustification(application.getAiJustification())
                 .submitDate(application.getSubmitDate())
                 .jobOfferId(jobOfferId)
                 .jobOfferTitle(jobOfferTitle)
@@ -273,7 +273,7 @@ public class CommissionMemberService {
                 .build();
     }
     private EvaluationResponseDTO mapToEvaluationResponseDTO(Evaluation evaluation) {
-        double totalScore = (evaluation.getCompetenceScore() +
+        double totalScore = (evaluation.getTechnicalSkillScore() +
                 evaluation.getExperienceScore() +
                 evaluation.getDiplomaScore() +
                 evaluation.getMotivationScore() +
@@ -297,7 +297,7 @@ public class CommissionMemberService {
                 .evaluatorId(evaluatorId)
                 .evaluatorName(evaluatorName)
                 .evaluatorRole(evaluatorRole)
-                .competenceScore(evaluation.getCompetenceScore())
+                .technicalSkillScore(evaluation.getTechnicalSkillScore())
                 .experienceScore(evaluation.getExperienceScore())
                 .diplomaScore(evaluation.getDiplomaScore())
                 .motivationScore(evaluation.getMotivationScore())
@@ -324,7 +324,7 @@ public class CommissionMemberService {
         }
 
         // Convertir chaque score avec vérification null
-        Double avgCompetence = averages[0] != null ? ((Number) averages[0]).doubleValue() : 0.0;
+        Double avgTechnicalSkill = averages[0] != null ? ((Number) averages[0]).doubleValue() : 0.0;
         Double avgExperience = averages[1] != null ? ((Number) averages[1]).doubleValue() : 0.0;
         Double avgDiploma = averages[2] != null ? ((Number) averages[2]).doubleValue() : 0.0;
         Double avgMotivation = averages[3] != null ? ((Number) averages[3]).doubleValue() : 0.0;
@@ -342,7 +342,7 @@ public class CommissionMemberService {
         Double overall = count > 0 ? sum / count : 0.0;
 
         return EvaluationAverageDTO.builder()
-                .averageCompetenceScore(avgCompetence)
+                .averageTechnicalSkillScore(avgTechnicalSkill)
                 .averageExperienceScore(avgExperience)
                 .averageDiplomaScore(avgDiploma)
                 .averageMotivationScore(avgMotivation)

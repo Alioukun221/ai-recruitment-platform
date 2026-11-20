@@ -43,11 +43,11 @@ public class WebhookController {
                 if (response.getScoringResult() != null) {
                     var scoring = response.getScoringResult();
 
-                    application.setScoreIA(scoring.getScoreGlobal().intValue());
-                    application.setMatchingCompetences(scoring.getMatchingCompetences().intValue());
+                    application.setAiScore(scoring.getScoreGlobal().intValue());
+                    application.setMatchingSkills(scoring.getMatchingSkills().intValue());
                     application.setMatchingExperience(scoring.getMatchingExperience().intValue());
                     application.setMatchingDiploma(scoring.getMatchingDiploma().intValue());
-                    application.setJustificationIA(scoring.getJustification());
+                    application.setAiJustification(scoring.getJustification());
                     application.setApplicationStatus(ApplicationStatus.AI_SCORED);
 
                     applicationRepository.save(application);

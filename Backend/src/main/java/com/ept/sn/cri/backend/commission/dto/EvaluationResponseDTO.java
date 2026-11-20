@@ -17,7 +17,7 @@ public class EvaluationResponseDTO {
     private Long evaluatorId;
     private String evaluatorName;
     private String evaluatorRole; // PRESIDENT ou MEMBER
-    private Integer competenceScore;
+    private Integer technicalSkillScore;
     private Integer experienceScore;
     private Integer diplomaScore;
     private Integer motivationScore;

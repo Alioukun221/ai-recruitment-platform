@@ -124,14 +124,14 @@ public class RHDashboardService {
 
             jobOffersByType.put(jobOffer.getJobType().name(),
                     jobOffersByType.getOrDefault(jobOffer.getJobType().name(), 0) + 1);
-            jobOffersByContract.put(jobOffer.getTypeContrat().name(),
-                    jobOffersByContract.getOrDefault(jobOffer.getTypeContrat().name(), 0) + 1);
+            jobOffersByContract.put(jobOffer.getContractType().name(),
+                    jobOffersByContract.getOrDefault(jobOffer.getContractType().name(), 0) + 1);
 
-            @Future(message = "La date limite doit être dans le futur.") Date dateSql = jobOffer.getDateLimite();
+            @Future(message = "La date limite doit être dans le futur.") Date dateSql = jobOffer.getDeadline();
             if (dateSql != null) {
-                LocalDate dateLimite = LocalDate.ofInstant(dateSql.toInstant(),  ZoneId.systemDefault());
+                LocalDate deadline = LocalDate.ofInstant(dateSql.toInstant(),  ZoneId.systemDefault());
 
-                if (!dateLimite.isBefore(today) && !dateLimite.isAfter(sevenDaysFromNow)) {
+                if (!deadline.isBefore(today) && !deadline.isAfter(sevenDaysFromNow)) {
                     jobOffersExpiringSoon++;
                 }
             }
@@ -184,7 +184,7 @@ public class RHDashboardService {
                 }
 
                 if (app.getSubmitDate().isAfter(thirtyDaysAgo)) applicationsLast30Days++;
-                if (app.getScoreIA() != null) { totalIAScore += app.getScoreIA(); scoredApplications++; }
+                if (app.getAiScore() != null) { totalIAScore += app.getAiScore(); scoredApplications++; }
 
                 String education = app.getHighestDegree();
                 applicationsByEducationLevel.put(education,
@@ -286,12 +286,12 @@ public class RHDashboardService {
                                     .count() : 0;
                     double avgIAScore = jobOffer.getApplications() != null ?
                             jobOffer.getApplications().stream()
-                                    .filter(app -> app.getScoreIA() != null)
-                                    .mapToInt(Application::getScoreIA)
+                                    .filter(app -> app.getAiScore() != null)
+                                    .mapToInt(Application::getAiScore)
                                     .average().orElse(0.0) : 0.0;
 
-                    LocalDateTime publishDate = jobOffer.getDatePublication() != null ?
-                            jobOffer.getDatePublication().toInstant()
+                    LocalDateTime publishDate = jobOffer.getPublicationDate() != null ?
+                            jobOffer.getPublicationDate().toInstant()
                                     .atZone(ZoneId.systemDefault())
                                     .toLocalDateTime() : LocalDateTime.now();
                     long daysActive = ChronoUnit.DAYS.between(publishDate, LocalDateTime.now());
@@ -354,13 +354,13 @@ public class RHDashboardService {
 
 
         long expiringSoon = allJobOffers.stream()
-                .filter(jo -> jo.getDateLimite() != null)
+                .filter(jo -> jo.getDeadline() != null)
                 .filter(jo -> {
-                    LocalDateTime dateLimite = LocalDateTime.ofInstant(
-                            jo.getDateLimite().toInstant(),
+                    LocalDateTime deadline = LocalDateTime.ofInstant(
+                            jo.getDeadline().toInstant(),
                             ZoneId.systemDefault()
                     );
-                    return dateLimite.isAfter(now) && dateLimite.isBefore(sevenDaysFromNow);
+                    return deadline.isAfter(now) && deadline.isBefore(sevenDaysFromNow);
                 })
                 .count();
 

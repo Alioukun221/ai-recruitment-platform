@@ -54,12 +54,12 @@
         </div>
 
         <div class="form-group">
-          <label for="typeContrat" class="form-label required">Type de contrat</label>
+          <label for="contractType" class="form-label required">Type de contrat</label>
           <select
-            id="typeContrat"
+            id="contractType"
             class="form-select"
-            [(ngModel)]="jobOffer.typeContrat"
-            name="typeContrat"
+            [(ngModel)]="jobOffer.contractType"
+            name="contractType"
           >
             <option *ngFor="let option of contractTypeOptions" [value]="option.value">
               {{ option.label }}
@@ -126,41 +126,41 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label for="niveauEtudeRequis" class="form-label required">Niveau d'étude requis</label>
+          <label for="requiredEducationLevel" class="form-label required">Niveau d'étude requis</label>
           <select
-            id="niveauEtudeRequis"
+            id="requiredEducationLevel"
             class="form-select"
-            [(ngModel)]="jobOffer.niveauEtudeRequis"
-            name="niveauEtudeRequis"
-            (change)="clearFieldError('niveauEtudeRequis')"
-            [class.error]="formErrors['niveauEtudeRequis']"
+            [(ngModel)]="jobOffer.requiredEducationLevel"
+            name="requiredEducationLevel"
+            (change)="clearFieldError('requiredEducationLevel')"
+            [class.error]="formErrors['requiredEducationLevel']"
           >
             <option value="">Sélectionnez un niveau</option>
             <option *ngFor="let level of educationLevels" [value]="level">
               {{ level }}
             </option>
           </select>
-          <span *ngIf="formErrors['niveauEtudeRequis']" class="error-message">
-            {{ formErrors['niveauEtudeRequis'] }}
+          <span *ngIf="formErrors['requiredEducationLevel']" class="error-message">
+            {{ formErrors['requiredEducationLevel'] }}
           </span>
         </div>
 
         <div class="form-group">
-          <label for="experienceMin" class="form-label required">Expérience minimale (années)</label>
+          <label for="minExperience" class="form-label required">Expérience minimale (années)</label>
           <input
             type="number"
-            id="experienceMin"
+            id="minExperience"
             class="form-input"
-            [(ngModel)]="jobOffer.experienceMin"
-            name="experienceMin"
+            [(ngModel)]="jobOffer.minExperience"
+            name="minExperience"
             min="0"
             max="50"
             placeholder="0"
-            (input)="clearFieldError('experienceMin')"
-            [class.error]="formErrors['experienceMin']"
+            (input)="clearFieldError('minExperience')"
+            [class.error]="formErrors['minExperience']"
           />
-          <span *ngIf="formErrors['experienceMin']" class="error-message">
-            {{ formErrors['experienceMin'] }}
+          <span *ngIf="formErrors['minExperience']" class="error-message">
+            {{ formErrors['minExperience'] }}
           </span>
         </div>
       </div>
@@ -171,19 +171,19 @@
       <h2 class="section-title">Détails & Dates</h2>
 
       <div class="form-group">
-        <label for="dateLimite" class="form-label required">Date limite de candidature</label>
+        <label for="deadline" class="form-label required">Date limite de candidature</label>
         <input
           type="date"
-          id="dateLimite"
+          id="deadline"
           class="form-input"
-          [(ngModel)]="jobOffer.dateLimite"
-          name="dateLimite"
+          [(ngModel)]="jobOffer.deadline"
+          name="deadline"
           [min]="getTodayDate()"
-          (change)="clearFieldError('dateLimite')"
-          [class.error]="formErrors['dateLimite']"
+          (change)="clearFieldError('deadline')"
+          [class.error]="formErrors['deadline']"
         />
-        <span *ngIf="formErrors['dateLimite']" class="error-message">
-          {{ formErrors['dateLimite'] }}
+        <span *ngIf="formErrors['deadline']" class="error-message">
+          {{ formErrors['deadline'] }}
         </span>
       </div>
     </section>

@@ -16,7 +16,7 @@ public interface CommissionApplicationRepository extends JpaRepository<Applicati
     @Query("SELECT a FROM Application a " +
             "WHERE a.jobOffer.id = (SELECT c.jobOffer.id FROM Commission c WHERE c.id = :commissionId) " +
             "AND a.applicationStatus = 'SHORTLISTED' " +
-            "ORDER BY a.scoreIA DESC")
+            "ORDER BY a.aiScore DESC")
     List<Application> findShortlistedApplicationsByCommissionId(@Param("commissionId") Long commissionId);
 
     // Trouver une candidature présélectionnée spécifique pour une commission

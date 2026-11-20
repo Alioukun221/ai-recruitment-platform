@@ -1,6 +1,6 @@
 package com.ept.sn.cri.backend.candidat.dto;
 
-import com.ept.sn.cri.backend.enums.ContratType;
+import com.ept.sn.cri.backend.enums.ContractType;
 import com.ept.sn.cri.backend.enums.JobType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,13 +19,13 @@ public class PublicJobOfferDetailDTO {
     private Long id;
     private String jobTitle;
     private JobType jobType;
-    private ContratType typeContrat;
+    private ContractType contractType;
     private String description;
     private String requiredSkills;
-    private String niveauEtudeRequis;
-    private Integer experienceMin;
-    private Date datePublication;
-    private Date dateLimite;
+    private String requiredEducationLevel;
+    private Integer minExperience;
+    private Date publicationDate;
+    private Date deadline;
     private Integer applicationCount;
     private String companyName; // a changer apres
 }

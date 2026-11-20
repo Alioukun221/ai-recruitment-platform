@@ -1,7 +1,7 @@
 package com.ept.sn.cri.backend.entity;
 
 import com.ept.sn.cri.backend.enums.JobStatus;
-import com.ept.sn.cri.backend.enums.ContratType;
+import com.ept.sn.cri.backend.enums.ContractType;
 import com.ept.sn.cri.backend.enums.JobType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -38,7 +38,7 @@ public class JobOffer {
 
     @NotNull(message = "Le type de contrat est obligatoire.")
     @Enumerated(EnumType.STRING)
-    private ContratType typeContrat;
+    private ContractType contractType;
 
     @NotNull(message = "Le statut de l'offre est obligatoire.")
     @Enumerated(EnumType.STRING)
@@ -54,23 +54,23 @@ public class JobOffer {
     private String requiredSkills;
 
     @NotBlank(message = "Le niveau d'étude requis est obligatoire.")
-    private String niveauEtudeRequis;
+    private String requiredEducationLevel;
 
     @NotNull(message = "L'expérience minimale est obligatoire.")
     @Min(value = 0, message = "L'expérience minimale ne peut pas être négative.")
-    private Integer experienceMin;
+    private Integer minExperience;
 
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, updatable = false)
-    private Date datePublication;
+    private Date publicationDate;
 
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
 
     @Future(message = "La date limite doit être dans le futur.")
-    private Date dateLimite;
+    private Date deadline;
 
 
     @OneToMany(mappedBy = "jobOffer", cascade = CascadeType.ALL, orphanRemoval = true)

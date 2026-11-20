@@ -20,7 +20,7 @@ public class ApplicationListDTO {
     private String highestDegree;
     private String majorField;
     private ApplicationStatus status;
-    private Integer scoreIA;
+    private Integer aiScore;
     private LocalDateTime submitDate;
     private String cvUrl;
 }

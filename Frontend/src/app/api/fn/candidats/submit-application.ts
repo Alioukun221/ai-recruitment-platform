@@ -21,7 +21,7 @@ export interface SubmitApplication$Params {
   majorField: string;
   educationalInstitution?: string;
   yearOfGraduation?: string;
-  motivationEcole?: string;
+  schoolMotivation?: string;
   motivationPosition?: string;
   availableImmediately?: boolean;
   certifyAccurate?: boolean;
@@ -46,7 +46,7 @@ export function submitApplication(http: HttpClient, rootUrl: string, params: Sub
     rb.query('majorField', params.majorField, {});
     rb.query('educationalInstitution', params.educationalInstitution, {});
     rb.query('yearOfGraduation', params.yearOfGraduation, {});
-    rb.query('motivationEcole', params.motivationEcole, {});
+    rb.query('schoolMotivation', params.schoolMotivation, {});
     rb.query('motivationPosition', params.motivationPosition, {});
     rb.query('availableImmediately', params.availableImmediately, {});
     rb.query('certifyAccurate', params.certifyAccurate, {});

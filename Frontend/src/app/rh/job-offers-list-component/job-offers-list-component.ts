@@ -115,7 +115,7 @@ export class JobOffersListComponent implements OnInit {
         offer.jobType === this.selectedJobType;
 
       const matchesContractType = !this.selectedContractType ||
-        offer.typeContrat === this.selectedContractType;
+        offer.contractType === this.selectedContractType;
 
       return matchesSearch && matchesStatus && matchesJobType && matchesContractType;
     });
@@ -193,18 +193,18 @@ export class JobOffersListComponent implements OnInit {
     });
   }
 
-  isExpiringSoon(dateLimite?: string): boolean {
-    if (!dateLimite) return false;
-    const limite = new Date(dateLimite);
+  isExpiringSoon(deadline?: string): boolean {
+    if (!deadline) return false;
+    const limite = new Date(deadline);
     const today = new Date();
     const diffTime = limite.getTime() - today.getTime();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays <= 7 && diffDays >= 0;
   }
 
-  isExpired(dateLimite?: string): boolean {
-    if (!dateLimite) return false;
-    const limite = new Date(dateLimite);
+  isExpired(deadline?: string): boolean {
+    if (!deadline) return false;
+    const limite = new Date(deadline);
     const today = new Date();
     return limite < today;
   }
@@ -304,7 +304,7 @@ export class JobOffersListComponent implements OnInit {
       if (valueB === undefined || valueB === null) return -1;
 
       // Gérer les dates
-      if (column === 'datePublication' || column === 'dateLimite') {
+      if (column === 'publicationDate' || column === 'deadline') {
         valueA = new Date(valueA).getTime();
         valueB = new Date(valueB).getTime();
       }
@@ -434,10 +434,10 @@ export class JobOffersListComponent implements OnInit {
     const csvData = this.filteredJobOffers.map(offer => [
       offer.jobTitle || '',
       this.getJobTypeLabel(offer.jobType),
-      this.getContractTypeLabel(offer.typeContrat),
+      this.getContractTypeLabel(offer.contractType),
       this.getStatusLabel(offer.jobStatus),
-      this.formatDate(offer.datePublication),
-      this.formatDate(offer.dateLimite),
+      this.formatDate(offer.publicationDate),
+      this.formatDate(offer.deadline),
       (offer.applicationCount || 0).toString()
     ]);
 

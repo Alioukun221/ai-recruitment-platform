@@ -1,6 +1,6 @@
 package com.ept.sn.cri.backend.enums;
 
-public enum ContratType {
+public enum ContractType {
     CDD,
     CDI,
     STAGE

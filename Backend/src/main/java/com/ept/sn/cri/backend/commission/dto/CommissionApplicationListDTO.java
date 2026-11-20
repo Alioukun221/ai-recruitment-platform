@@ -18,7 +18,7 @@ public class CommissionApplicationListDTO {
     private String candidateEmail;
     private String highestDegree;
     private String specialization;
-    private Integer scoreIA;
+    private Integer aiScore;
     private LocalDateTime submitDate;
     private String cvUrl;
     private Integer evaluationCount;

@@ -44,7 +44,7 @@ export class EvaluateDetailsComponent implements OnInit {
   editData: CreateEvaluationDto = {
     diplomaScore: 0,
     experienceScore: 0,
-    competenceScore: 0,
+    technicalSkillScore: 0,
     motivationScore: 0,
     softSkillsScore: 0,
     comment: ''
@@ -154,7 +154,7 @@ export class EvaluateDetailsComponent implements OnInit {
       this.editData = {
         diplomaScore: this.evaluation.diplomaScore || 0,
         experienceScore: this.evaluation.experienceScore || 0,
-        competenceScore: this.evaluation.competenceScore || 0,
+        technicalSkillScore: this.evaluation.technicalSkillScore || 0,
         motivationScore: this.evaluation.motivationScore || 0,
         softSkillsScore: this.evaluation.softSkillsScore || 0,
         comment: this.evaluation.comment || ''
@@ -168,7 +168,7 @@ export class EvaluateDetailsComponent implements OnInit {
     this.editData = {
       diplomaScore: 0,
       experienceScore: 0,
-      competenceScore: 0,
+      technicalSkillScore: 0,
       motivationScore: 0,
       softSkillsScore: 0,
       comment: ''
@@ -253,7 +253,7 @@ export class EvaluateDetailsComponent implements OnInit {
     return (
       (this.evaluation.diplomaScore || 0) +
       (this.evaluation.experienceScore || 0) +
-      (this.evaluation.competenceScore || 0) +
+      (this.evaluation.technicalSkillScore || 0) +
       (this.evaluation.motivationScore || 0) +
       (this.evaluation.softSkillsScore || 0)
     );

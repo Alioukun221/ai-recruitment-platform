@@ -1,6 +1,6 @@
 package com.ept.sn.cri.backend.rh.dto;
 
-import com.ept.sn.cri.backend.enums.ContratType;
+import com.ept.sn.cri.backend.enums.ContractType;
 import com.ept.sn.cri.backend.enums.JobType;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.Min;
@@ -25,7 +25,7 @@ public class CreateJobOfferDTO {
     private JobType jobType;
 
     @NotNull(message = "Le type de contrat est obligatoire.")
-    private ContratType typeContrat;
+    private ContractType contractType;
 
     @NotBlank(message = "La description est obligatoire.")
     private String description;
@@ -34,12 +34,12 @@ public class CreateJobOfferDTO {
     private String requiredSkills;
 
     @NotBlank(message = "Le niveau d'étude requis est obligatoire.")
-    private String niveauEtudeRequis;
+    private String requiredEducationLevel;
 
     @NotNull(message = "L'expérience minimale est obligatoire.")
     @Min(value = 0, message = "L'expérience minimale ne peut pas être négative.")
-    private Integer experienceMin;
+    private Integer minExperience;
 
     @Future(message = "La date limite doit être dans le futur.")
-    private Date dateLimite;
+    private Date deadline;
 }

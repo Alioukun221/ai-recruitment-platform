@@ -1,6 +1,6 @@
 package com.ept.sn.cri.backend.rh.dto;
 
-import com.ept.sn.cri.backend.enums.ContratType;
+import com.ept.sn.cri.backend.enums.ContractType;
 import com.ept.sn.cri.backend.enums.JobStatus;
 import com.ept.sn.cri.backend.enums.JobType;
 import lombok.AllArgsConstructor;
@@ -20,9 +20,9 @@ public class JobOfferListDTO {
     private Long id;
     private String jobTitle;
     private JobType jobType;
-    private ContratType typeContrat;
+    private ContractType contractType;
     private JobStatus jobStatus;
-    private Date datePublication;
-    private Date dateLimite;
+    private Date publicationDate;
+    private Date deadline;
     private Integer applicationCount;
 }

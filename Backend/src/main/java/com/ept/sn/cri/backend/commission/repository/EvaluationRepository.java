@@ -32,7 +32,7 @@ public interface EvaluationRepository extends JpaRepository<Evaluation, Long> {
 
     // Calculer la moyenne des scores pour une candidature
     @Query("SELECT " +
-            "AVG(e.competenceScore), " +
+            "AVG(e.technicalSkillScore), " +
             "AVG(e.experienceScore), " +
             "AVG(e.diplomaScore), " +
             "AVG(e.motivationScore), " +

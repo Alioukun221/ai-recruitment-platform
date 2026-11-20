@@ -751,7 +751,7 @@
             }
           },
           {
-            "name": "motivationEcole",
+            "name": "schoolMotivation",
             "in": "query",
             "required": false,
             "schema": {
@@ -1703,7 +1703,7 @@
               "CONTRACTUEL"
             ]
           },
-          "typeContrat": {
+          "contractType": {
             "type": "string",
             "enum": [
               "CDD",
@@ -1726,15 +1726,15 @@
           "requiredSkills": {
             "type": "string"
           },
-          "niveauEtudeRequis": {
+          "requiredEducationLevel": {
             "type": "string"
           },
-          "experienceMin": {
+          "minExperience": {
             "minimum": 0,
             "type": "integer",
             "format": "int32"
           },
-          "dateLimite": {
+          "deadline": {
             "type": "string",
             "format": "date-time"
           }
@@ -1758,7 +1758,7 @@
               "CONTRACTUEL"
             ]
           },
-          "typeContrat": {
+          "contractType": {
             "type": "string",
             "enum": [
               "CDD",
@@ -1781,14 +1781,14 @@
           "requiredSkills": {
             "type": "string"
           },
-          "niveauEtudeRequis": {
+          "requiredEducationLevel": {
             "type": "string"
           },
-          "experienceMin": {
+          "minExperience": {
             "type": "integer",
             "format": "int32"
           },
-          "datePublication": {
+          "publicationDate": {
             "type": "string",
             "format": "date-time"
           },
@@ -1796,7 +1796,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "dateLimite": {
+          "deadline": {
             "type": "string",
             "format": "date-time"
           },
@@ -1985,11 +1985,11 @@
               "WITHDRAWN"
             ]
           },
-          "scoreIA": {
+          "aiScore": {
             "type": "integer",
             "format": "int32"
           },
-          "matchingCompetences": {
+          "matchingSkills": {
             "type": "integer",
             "format": "int32"
           },
@@ -2001,7 +2001,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "justificationIA": {
+          "aiJustification": {
             "type": "string"
           },
           "submitDate": {
@@ -2027,7 +2027,7 @@
       },
       "CreateEvaluationDTO": {
         "required": [
-          "competenceScore",
+          "technicalSkillScore",
           "diplomaScore",
           "experienceScore",
           "motivationScore",
@@ -2035,7 +2035,7 @@
         ],
         "type": "object",
         "properties": {
-          "competenceScore": {
+          "technicalSkillScore": {
             "maximum": 5,
             "minimum": 0,
             "type": "integer",
@@ -2089,7 +2089,7 @@
           "evaluatorRole": {
             "type": "string"
           },
-          "competenceScore": {
+          "technicalSkillScore": {
             "type": "integer",
             "format": "int32"
           },
@@ -2151,7 +2151,7 @@
             "type": "number",
             "format": "double"
           },
-          "matching_competences": {
+          "matching_skills": {
             "type": "number",
             "format": "double"
           },
@@ -2200,12 +2200,12 @@
       "CreateJobOfferDTO": {
         "required": [
           "description",
-          "experienceMin",
+          "minExperience",
           "jobTitle",
           "jobType",
-          "niveauEtudeRequis",
+          "requiredEducationLevel",
           "requiredSkills",
-          "typeContrat"
+          "contractType"
         ],
         "type": "object",
         "properties": {
@@ -2220,7 +2220,7 @@
               "CONTRACTUEL"
             ]
           },
-          "typeContrat": {
+          "contractType": {
             "type": "string",
             "enum": [
               "CDD",
@@ -2234,15 +2234,15 @@
           "requiredSkills": {
             "type": "string"
           },
-          "niveauEtudeRequis": {
+          "requiredEducationLevel": {
             "type": "string"
           },
-          "experienceMin": {
+          "minExperience": {
             "minimum": 0,
             "type": "integer",
             "format": "int32"
           },
-          "dateLimite": {
+          "deadline": {
             "type": "string",
             "format": "date-time"
           }
@@ -2471,7 +2471,7 @@
               "CONTRACTUEL"
             ]
           },
-          "typeContrat": {
+          "contractType": {
             "type": "string",
             "enum": [
               "CDD",
@@ -2488,11 +2488,11 @@
               "ARCHIVED"
             ]
           },
-          "datePublication": {
+          "publicationDate": {
             "type": "string",
             "format": "date-time"
           },
-          "dateLimite": {
+          "deadline": {
             "type": "string",
             "format": "date-time"
           },
@@ -2924,7 +2924,7 @@
               "WITHDRAWN"
             ]
           },
-          "scoreIA": {
+          "aiScore": {
             "type": "integer",
             "format": "int32"
           },
@@ -2982,7 +2982,7 @@
           "specialization": {
             "type": "string"
           },
-          "scoreIA": {
+          "aiScore": {
             "type": "integer",
             "format": "int32"
           },
@@ -3034,11 +3034,11 @@
           "cvUrl": {
             "type": "string"
           },
-          "scoreIA": {
+          "aiScore": {
             "type": "integer",
             "format": "int32"
           },
-          "matchingCompetences": {
+          "matchingSkills": {
             "type": "integer",
             "format": "int32"
           },
@@ -3050,7 +3050,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "justificationIA": {
+          "aiJustification": {
             "type": "string"
           },
           "submitDate": {
@@ -3085,7 +3085,7 @@
       "EvaluationAverageDTO": {
         "type": "object",
         "properties": {
-          "averageCompetenceScore": {
+          "averageTechnicalSkillScore": {
             "type": "number",
             "format": "double"
           },
@@ -3133,7 +3133,7 @@
               "CONTRACTUEL"
             ]
           },
-          "typeContrat": {
+          "contractType": {
             "type": "string",
             "enum": [
               "CDD",
@@ -3229,7 +3229,7 @@
               "CONTRACTUEL"
             ]
           },
-          "typeContrat": {
+          "contractType": {
             "type": "string",
             "enum": [
               "CDD",
@@ -3240,18 +3240,18 @@
           "description": {
             "type": "string"
           },
-          "niveauEtudeRequis": {
+          "requiredEducationLevel": {
             "type": "string"
           },
-          "experienceMin": {
+          "minExperience": {
             "type": "integer",
             "format": "int32"
           },
-          "datePublication": {
+          "publicationDate": {
             "type": "string",
             "format": "date-time"
           },
-          "dateLimite": {
+          "deadline": {
             "type": "string",
             "format": "date-time"
           },
@@ -3285,7 +3285,7 @@
               "CONTRACTUEL"
             ]
           },
-          "typeContrat": {
+          "contractType": {
             "type": "string",
             "enum": [
               "CDD",
@@ -3299,18 +3299,18 @@
           "requiredSkills": {
             "type": "string"
           },
-          "niveauEtudeRequis": {
+          "requiredEducationLevel": {
             "type": "string"
           },
-          "experienceMin": {
+          "minExperience": {
             "type": "integer",
             "format": "int32"
           },
-          "datePublication": {
+          "publicationDate": {
             "type": "string",
             "format": "date-time"
           },
-          "dateLimite": {
+          "deadline": {
             "type": "string",
             "format": "date-time"
           },

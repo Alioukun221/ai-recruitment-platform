@@ -17,8 +17,8 @@ public class IAScoringResultDTO {
     @JsonProperty("score_global")
     private Double scoreGlobal;
 
-    @JsonProperty("matching_competences")
-    private Double matchingCompetences;
+    @JsonProperty("matching_skills")
+    private Double matchingSkills;
 
     @JsonProperty("matching_experience")
     private Double matchingExperience;

@@ -82,7 +82,7 @@ public class CandidateJobOfferController {
 
 
             // Step 4
-            @RequestParam(required = false) String motivationEcole,
+            @RequestParam(required = false) String schoolMotivation,
             @RequestParam(required = false) String motivationPosition,
             @RequestParam(defaultValue = "false") boolean availableImmediately,
 
@@ -97,7 +97,7 @@ public class CandidateJobOfferController {
         SubmitApplicationDTO dto = new SubmitApplicationDTO(
                 firstName, lastName, email, phoneNumber, address, nationality,
                 highestDegree, majorField, educationalInstitution, yearOfGraduation,
-                motivationEcole, motivationPosition, availableImmediately,
+                schoolMotivation, motivationPosition, availableImmediately,
                 certifyAccurate, consentGDPR, electronicSignature
         );
 

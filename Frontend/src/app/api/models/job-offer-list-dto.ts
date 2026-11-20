@@ -3,11 +3,11 @@
 
 export interface JobOfferListDto {
   applicationCount?: number;
-  dateLimite?: string;
-  datePublication?: string;
+  deadline?: string;
+  publicationDate?: string;
   id: number;
   jobStatus?: 'DRAFT' | 'PUBLISHED' | 'SUSPENDED' | 'ARCHIVED';
   jobTitle?: string;
   jobType?: 'PER' | 'PATS' | 'CONTRACTUEL';
-  typeContrat?: 'CDD' | 'CDI' | 'STAGE';
+  contractType?: 'CDD' | 'CDI' | 'STAGE';
 }

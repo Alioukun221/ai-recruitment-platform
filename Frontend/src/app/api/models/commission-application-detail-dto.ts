@@ -16,12 +16,12 @@ export interface CommissionApplicationDetailDto {
   id?: number;
   jobOfferId?: number;
   jobOfferTitle?: string;
-  justificationIA?: string;
+  aiJustification?: string;
   lastName?: string;
-  matchingCompetences?: number;
+  matchingSkills?: number;
   matchingDiploma?: number;
   matchingExperience?: number;
-  scoreIA?: number;
+  aiScore?: number;
   specialization?: string;
   submitDate?: string;
 }

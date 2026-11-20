@@ -37,12 +37,12 @@ public class JobOfferService {
         JobOffer jobOffer = new JobOffer();
         jobOffer.setJobTitle(dto.getJobTitle());
         jobOffer.setJobType(dto.getJobType());
-        jobOffer.setTypeContrat(dto.getTypeContrat());
+        jobOffer.setContractType(dto.getContractType());
         jobOffer.setDescription(dto.getDescription());
         jobOffer.setRequiredSkills(dto.getRequiredSkills());
-        jobOffer.setNiveauEtudeRequis(dto.getNiveauEtudeRequis());
-        jobOffer.setExperienceMin(dto.getExperienceMin());
-        jobOffer.setDateLimite(dto.getDateLimite());
+        jobOffer.setRequiredEducationLevel(dto.getRequiredEducationLevel());
+        jobOffer.setMinExperience(dto.getMinExperience());
+        jobOffer.setDeadline(dto.getDeadline());
         jobOffer.setJobStatus(JobStatus.PUBLISHED);
         jobOffer.setCreatedBy(rh);
 
@@ -64,8 +64,8 @@ public class JobOfferService {
         if (dto.getJobType() != null) {
             jobOffer.setJobType(dto.getJobType());
         }
-        if (dto.getTypeContrat() != null) {
-            jobOffer.setTypeContrat(dto.getTypeContrat());
+        if (dto.getContractType() != null) {
+            jobOffer.setContractType(dto.getContractType());
         }
         if (dto.getJobStatus() != null) {
             jobOffer.setJobStatus(dto.getJobStatus());
@@ -76,14 +76,14 @@ public class JobOfferService {
         if (dto.getRequiredSkills() != null) {
             jobOffer.setRequiredSkills(dto.getRequiredSkills());
         }
-        if (dto.getNiveauEtudeRequis() != null) {
-            jobOffer.setNiveauEtudeRequis(dto.getNiveauEtudeRequis());
+        if (dto.getRequiredEducationLevel() != null) {
+            jobOffer.setRequiredEducationLevel(dto.getRequiredEducationLevel());
         }
-        if (dto.getExperienceMin() != null) {
-            jobOffer.setExperienceMin(dto.getExperienceMin());
+        if (dto.getMinExperience() != null) {
+            jobOffer.setMinExperience(dto.getMinExperience());
         }
-        if (dto.getDateLimite() != null) {
-            jobOffer.setDateLimite(dto.getDateLimite());
+        if (dto.getDeadline() != null) {
+            jobOffer.setDeadline(dto.getDeadline());
         }
 
         JobOffer updatedOffer = jobOfferRepository.save(jobOffer);
@@ -139,15 +139,15 @@ public class JobOfferService {
                 .id(jobOffer.getId())
                 .jobTitle(jobOffer.getJobTitle())
                 .jobType(jobOffer.getJobType())
-                .typeContrat(jobOffer.getTypeContrat())
+                .contractType(jobOffer.getContractType())
                 .jobStatus(jobOffer.getJobStatus())
                 .description(jobOffer.getDescription())
                 .requiredSkills(jobOffer.getRequiredSkills())
-                .niveauEtudeRequis(jobOffer.getNiveauEtudeRequis())
-                .experienceMin(jobOffer.getExperienceMin())
-                .datePublication(jobOffer.getDatePublication())
+                .requiredEducationLevel(jobOffer.getRequiredEducationLevel())
+                .minExperience(jobOffer.getMinExperience())
+                .publicationDate(jobOffer.getPublicationDate())
                 .lastModifiedDate(jobOffer.getLastModifiedDate())
-                .dateLimite(jobOffer.getDateLimite())
+                .deadline(jobOffer.getDeadline())
                 .createdById(jobOffer.getCreatedBy().getId())
                 .createdByName(jobOffer.getCreatedBy().getFullName())
                 .applicationCount(jobOffer.getApplications() != null ? jobOffer.getApplications().size() : 0)
@@ -159,10 +159,10 @@ public class JobOfferService {
                 .id(jobOffer.getId())
                 .jobTitle(jobOffer.getJobTitle())
                 .jobType(jobOffer.getJobType())
-                .typeContrat(jobOffer.getTypeContrat())
+                .contractType(jobOffer.getContractType())
                 .jobStatus(jobOffer.getJobStatus())
-                .datePublication(jobOffer.getDatePublication())
-                .dateLimite(jobOffer.getDateLimite())
+                .publicationDate(jobOffer.getPublicationDate())
+                .deadline(jobOffer.getDeadline())
                 .applicationCount(jobOffer.getApplications() != null ? jobOffer.getApplications().size() : 0)
                 .build();
     }

@@ -106,11 +106,11 @@ public class IAService {
             // Sauvegarder les scores
             IAScoringResultDTO scoring = response.getScoringResult();
             if (scoring != null) {
-                application.setScoreIA(scoring.getScoreGlobal().intValue());
-                application.setMatchingCompetences(scoring.getMatchingCompetences().intValue());
+                application.setAiScore(scoring.getScoreGlobal().intValue());
+                application.setMatchingSkills(scoring.getMatchingSkills().intValue());
                 application.setMatchingExperience(scoring.getMatchingExperience().intValue());
                 application.setMatchingDiploma(scoring.getMatchingDiploma().intValue());
-                application.setJustificationIA(scoring.getJustification());
+                application.setAiJustification(scoring.getJustification());
             }
 
             applicationRepository.save(application);
@@ -180,11 +180,11 @@ public class IAService {
                 .jobId(jobOffer.getId())
                 .jobTitle(jobOffer.getJobTitle())
                 .jobType(jobOffer.getJobType().name())
-                .contractType(jobOffer.getTypeContrat().name())
+                .contractType(jobOffer.getContractType().name())
                 .description(jobOffer.getDescription())
                 .requiredSkills(skills)
-                .educationLevel(jobOffer.getNiveauEtudeRequis())
-                .minExperience(jobOffer.getExperienceMin())
+                .educationLevel(jobOffer.getRequiredEducationLevel())
+                .minExperience(jobOffer.getMinExperience())
                 .build();
     }
 

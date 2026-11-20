@@ -32,11 +32,11 @@ public class ApplicationDetailDTO {
     private ApplicationStatus status;
 
     // Scores IA
-    private Integer scoreIA;
-    private Integer matchingCompetences;
+    private Integer aiScore;
+    private Integer matchingSkills;
     private Integer matchingExperience;
     private Integer matchingDiploma;
-    private String justificationIA;
+    private String aiJustification;
 
     // Dates
     private LocalDateTime submitDate;

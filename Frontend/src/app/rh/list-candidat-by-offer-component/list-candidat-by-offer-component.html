@@ -261,10 +261,10 @@
             </span>
           </div>
         </th>
-        <th class="col-score sortable" (click)="sortBy('scoreIA')">
+        <th class="col-score sortable" (click)="sortBy('aiScore')">
           <div class="th-content">
             <span>Score IA</span>
-            <span class="sort-icon" *ngIf="sortColumn === 'scoreIA'">
+            <span class="sort-icon" *ngIf="sortColumn === 'aiScore'">
               {{ sortDirection === 'asc' ? '↑' : '↓' }}
             </span>
           </div>
@@ -331,11 +331,11 @@
         </td>
 
         <td class="col-score">
-          <div class="score-cell" [ngClass]="getScoreColor(app.scoreIA)">
+          <div class="score-cell" [ngClass]="getScoreColor(app.aiScore)">
             <div class="score-bar">
-              <div class="score-fill" [style.width.%]="app.scoreIA || 0"></div>
+              <div class="score-fill" [style.width.%]="app.aiScore || 0"></div>
             </div>
-            <span class="score-value">{{ app.scoreIA || 0 }}%</span>
+            <span class="score-value">{{ app.aiScore || 0 }}%</span>
           </div>
         </td>
 

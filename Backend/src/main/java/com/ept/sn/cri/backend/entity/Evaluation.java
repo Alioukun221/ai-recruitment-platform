@@ -27,7 +27,7 @@ public class Evaluation {
     private Application application;
 
 
-    private Integer competenceScore;
+    private Integer technicalSkillScore;
     private Integer experienceScore;
     private Integer diplomaScore;
     private Integer motivationScore;

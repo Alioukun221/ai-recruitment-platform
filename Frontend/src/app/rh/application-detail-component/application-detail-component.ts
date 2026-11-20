@@ -113,7 +113,7 @@ export class ApplicationDetailComponent implements OnInit {
   }
 
   getScoreColor(): string {
-    const score = this.application?.scoreIA || 0;
+    const score = this.application?.aiScore || 0;
     if (score >= 80) return 'score-excellent';
     if (score >= 60) return 'score-good';
     if (score >= 40) return 'score-average';
@@ -121,7 +121,7 @@ export class ApplicationDetailComponent implements OnInit {
   }
 
   getScoreLabel(): string {
-    const score = this.application?.scoreIA || 0;
+    const score = this.application?.aiScore || 0;
     if (score >= 80) return 'Excellent';
     if (score >= 60) return 'Bon';
     if (score >= 40) return 'Moyen';
@@ -169,7 +169,7 @@ export class ApplicationDetailComponent implements OnInit {
     const name = this.getFullName();
     const degree = this.application.highestDegree || 'diplôme non spécifié';
     const field = this.application.majorField || 'domaine non spécifié';
-    const score = this.application.scoreIA || 0;
+    const score = this.application.aiScore || 0;
     const jobTitle = this.application.jobOfferTitle || 'ce poste';
 
     let summary = `${name} est candidat(e) pour le poste de ${jobTitle}. `;
@@ -185,7 +185,7 @@ export class ApplicationDetailComponent implements OnInit {
       summary += `ce profil nécessite une analyse approfondie pour évaluer son adéquation au poste. `;
     }
 
-    const compMatch = this.application.matchingCompetences || 0;
+    const compMatch = this.application.matchingSkills || 0;
     const dipMatch = this.application.matchingDiploma || 0;
     const expMatch = this.application.matchingExperience || 0;
 

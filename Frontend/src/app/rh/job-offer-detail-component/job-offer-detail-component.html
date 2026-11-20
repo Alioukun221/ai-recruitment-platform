@@ -33,12 +33,12 @@
           <span class="meta-separator">•</span>
           <span class="meta-item">
             <span class="icon"></span>
-            {{ getContractTypeLabel(jobOffer.typeContrat) }}
+            {{ getContractTypeLabel(jobOffer.contractType) }}
           </span>
           <span class="meta-separator">•</span>
           <span class="meta-item">
             <span class="icon"></span>
-            Publié le {{ formatDate(jobOffer.datePublication) }}
+            Publié le {{ formatDate(jobOffer.publicationDate) }}
           </span>
         </div>
       </div>
@@ -107,11 +107,11 @@
           <div class="section-content">
             <div class="profile-item">
               <h3 class="profile-subtitle">Niveau d'étude</h3>
-              <p class="profile-value">{{ jobOffer.niveauEtudeRequis }}</p>
+              <p class="profile-value">{{ jobOffer.requiredEducationLevel }}</p>
             </div>
             <div class="profile-item">
               <h3 class="profile-subtitle">Expérience requise</h3>
-              <p class="profile-value">{{ jobOffer.experienceMin }} an(s) minimum</p>
+              <p class="profile-value">{{ jobOffer.minExperience }} an(s) minimum</p>
             </div>
             <div class="profile-item">
               <h3 class="profile-subtitle">Compétences techniques requises</h3>
@@ -145,7 +145,7 @@
               </div>
               <div class="admin-item">
                 <span class="admin-label">Type de contrat</span>
-                <span class="admin-value">{{ getContractTypeLabel(jobOffer.typeContrat) }}</span>
+                <span class="admin-value">{{ getContractTypeLabel(jobOffer.contractType) }}</span>
               </div>
               <div class="admin-item">
                 <span class="admin-label">Type d'emploi</span>
@@ -172,16 +172,16 @@
         <div class="sidebar-card">
           <h3 class="card-title">Date limite</h3>
           <div class="date-display">
-            <p class="date-large">{{ formatDate(jobOffer.dateLimite) }}</p>
-            <div *ngIf="!isExpired(jobOffer.dateLimite)" class="days-remaining">
-              <span *ngIf="isExpiringSoon(jobOffer.dateLimite)" class="warning-text">
-                ⚠ {{ getDaysRemaining(jobOffer.dateLimite) }} jour(s) restant(s)
+            <p class="date-large">{{ formatDate(jobOffer.deadline) }}</p>
+            <div *ngIf="!isExpired(jobOffer.deadline)" class="days-remaining">
+              <span *ngIf="isExpiringSoon(jobOffer.deadline)" class="warning-text">
+                ⚠ {{ getDaysRemaining(jobOffer.deadline) }} jour(s) restant(s)
               </span>
-              <span *ngIf="!isExpiringSoon(jobOffer.dateLimite)" class="normal-text">
-                {{ getDaysRemaining(jobOffer.dateLimite) }} jour(s) restant(s)
+              <span *ngIf="!isExpiringSoon(jobOffer.deadline)" class="normal-text">
+                {{ getDaysRemaining(jobOffer.deadline) }} jour(s) restant(s)
               </span>
             </div>
-            <div *ngIf="isExpired(jobOffer.dateLimite)" class="days-remaining">
+            <div *ngIf="isExpired(jobOffer.deadline)" class="days-remaining">
               <span class="danger-text">
                  Date limite dépassée
               </span>

@@ -8,7 +8,7 @@ export interface ApplicationListDto {
   highestDegree?: string;
   id: number;
   majorField?: string;
-  scoreIA?: number;
+  aiScore?: number;
   status?: 'DRAFT' | 'SUBMITTED' | 'UNDER_REVIEW' | 'AI_SCORED' | 'SHORTLISTED' | 'INTERVIEW_SCHEDULED' | 'INTERVIEW_COMPLETED' | 'ACCEPTED' | 'REJECTED' | 'WITHDRAWN';
   submitDate?: string;
 }

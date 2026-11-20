@@ -5,16 +5,16 @@ export interface JobOfferResponseDto {
   applicationCount?: number;
   createdById?: number;
   createdByName?: string;
-  dateLimite?: string;
-  datePublication?: string;
+  deadline?: string;
+  publicationDate?: string;
   description?: string;
-  experienceMin?: number;
+  minExperience?: number;
   id?: number;
   jobStatus?: 'DRAFT' | 'PUBLISHED' | 'SUSPENDED' | 'ARCHIVED';
   jobTitle?: string;
   jobType?: 'PER' | 'PATS' | 'CONTRACTUEL';
   lastModifiedDate?: string;
-  niveauEtudeRequis?: string;
+  requiredEducationLevel?: string;
   requiredSkills?: string;
-  typeContrat?: 'CDD' | 'CDI' | 'STAGE';
+  contractType?: 'CDD' | 'CDI' | 'STAGE';
 }

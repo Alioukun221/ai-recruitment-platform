@@ -22,7 +22,7 @@ export class CandidatesListComponent implements OnInit {
   // Filtres et recherche
   searchTerm = '';
   statusFilter = 'all';
-  sortBy = 'scoreIA';
+  sortBy = 'aiScore';
 
   // Informations de la commission
   commissionId: number | null = null;
@@ -95,8 +95,8 @@ export class CandidatesListComponent implements OnInit {
 
   applySorting() {
     this.filteredCandidates.sort((a, b) => {
-      if (this.sortBy === 'scoreIA') {
-        return (b.scoreIA || 0) - (a.scoreIA || 0);
+      if (this.sortBy === 'aiScore') {
+        return (b.aiScore || 0) - (a.aiScore || 0);
       } else if (this.sortBy === 'avgScore') {
         return (b.averageCommissionScore || 0) - (a.averageCommissionScore || 0);
       } else if (this.sortBy === 'date') {

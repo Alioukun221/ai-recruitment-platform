@@ -12,13 +12,13 @@ export interface ApplicationDetailDto {
   id?: number;
   jobOfferId?: number;
   jobOfferTitle?: string;
-  justificationIA?: string;
+  aiJustification?: string;
   lastName?: string;
   majorField?: string;
-  matchingCompetences?: number;
+  matchingSkills?: number;
   matchingDiploma?: number;
   matchingExperience?: number;
-  scoreIA?: number;
+  aiScore?: number;
   status?: 'DRAFT' | 'SUBMITTED' | 'UNDER_REVIEW' | 'AI_SCORED' | 'SHORTLISTED' | 'INTERVIEW_SCHEDULED' | 'INTERVIEW_COMPLETED' | 'ACCEPTED' | 'REJECTED' | 'WITHDRAWN';
   submitDate?: string;
   updateDate?: string;

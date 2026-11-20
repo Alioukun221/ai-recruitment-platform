@@ -114,7 +114,7 @@ export class CommissionCandidatDetailComponents implements OnInit {
   }
 
   getScoreBadgeClass(): string {
-    const score = this.candidate?.scoreIA || 0;
+    const score = this.candidate?.aiScore || 0;
     if (score >= 70) return 'high';
     if (score >= 40) return 'medium';
     return 'low';

@@ -1,6 +1,6 @@
 package com.ept.sn.cri.backend.candidat.dto;
 
-import com.ept.sn.cri.backend.enums.ContratType;
+import com.ept.sn.cri.backend.enums.ContractType;
 import com.ept.sn.cri.backend.enums.JobType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +19,7 @@ public class CandidateApplicationHistoryDTO {
     private Long jobOfferId;
     private String jobTitle;
     private JobType jobType;
-    private ContratType typeContrat;
+    private ContractType contractType;
     private String status;
     private LocalDateTime submitDate;
     private LocalDateTime lastUpdateDate;

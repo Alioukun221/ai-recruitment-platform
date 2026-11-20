@@ -88,15 +88,15 @@
       <div class="card score-card">
         <div class="card-header">
           <h3>Score IA de pertinence</h3>
-          <span class="badge" [ngClass]="getScoreBadgeClass()">{{ candidate.scoreIA || 0 }}%</span>
+          <span class="badge" [ngClass]="getScoreBadgeClass()">{{ candidate.aiScore || 0 }}%</span>
         </div>
         <div class="score-details">
           <div class="score-item">
             <span class="score-label">Compétences</span>
             <div class="progress-bar">
-              <div class="progress-fill" [style.width.%]="candidate.matchingCompetences || 0"></div>
+              <div class="progress-fill" [style.width.%]="candidate.matchingSkills || 0"></div>
             </div>
-            <span class="score-value">{{ candidate.matchingCompetences || 0 }}%</span>
+            <span class="score-value">{{ candidate.matchingSkills || 0 }}%</span>
           </div>
           <div class="score-item">
             <span class="score-label">Diplômes</span>
@@ -123,8 +123,8 @@
           </svg>
         </div>
         <div class="ia-content">
-          <p *ngIf="candidate.justificationIA">{{ candidate.justificationIA }}</p>
-          <p *ngIf="!candidate.justificationIA" class="no-data">Aucune analyse disponible</p>
+          <p *ngIf="candidate.aiJustification">{{ candidate.aiJustification }}</p>
+          <p *ngIf="!candidate.aiJustification" class="no-data">Aucune analyse disponible</p>
         </div>
       </div>
     </div>
@@ -178,10 +178,10 @@
         <div class="average-item">
           <span class="average-label">Compétences techniques</span>
           <div class="stars">
-            <span *ngFor="let star of getStarsArray(candidate.averageScores.averageCompetenceScore)" class="star filled">★</span>
-            <span *ngFor="let star of getEmptyStarsArray(candidate.averageScores.averageCompetenceScore)" class="star">★</span>
+            <span *ngFor="let star of getStarsArray(candidate.averageScores.averageTechnicalSkillScore)" class="star filled">★</span>
+            <span *ngFor="let star of getEmptyStarsArray(candidate.averageScores.averageTechnicalSkillScore)" class="star">★</span>
           </div>
-          <span class="average-value">{{ candidate.averageScores.averageCompetenceScore || 0 }}/5</span>
+          <span class="average-value">{{ candidate.averageScores.averageTechnicalSkillScore || 0 }}/5</span>
         </div>
         <div class="average-item">
           <span class="average-label">Compétences comportementales</span>
@@ -272,7 +272,7 @@
             <div class="mini-score">
               <span>Technique:</span>
               <div class="mini-stars">
-                <span *ngFor="let star of getStarsArray(evaluation.competenceScore)" class="star-mini filled">★</span>
+                <span *ngFor="let star of getStarsArray(evaluation.technicalSkillScore)" class="star-mini filled">★</span>
               </div>
             </div>
             <div class="mini-score">

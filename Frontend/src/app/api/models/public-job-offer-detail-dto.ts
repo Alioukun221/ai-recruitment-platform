@@ -4,14 +4,14 @@
 export interface PublicJobOfferDetailDto {
   applicationCount?: number;
   companyName?: string;
-  dateLimite?: string;
-  datePublication?: string;
+  deadline?: string;
+  publicationDate?: string;
   description?: string;
-  experienceMin?: number;
+  minExperience?: number;
   id?: number;
   jobTitle?: string;
   jobType?: 'PER' | 'PATS' | 'CONTRACTUEL';
-  niveauEtudeRequis?: string;
+  requiredEducationLevel?: string;
   requiredSkills?: string;
-  typeContrat?: 'CDD' | 'CDI' | 'STAGE';
+  contractType?: 'CDD' | 'CDI' | 'STAGE';
 }

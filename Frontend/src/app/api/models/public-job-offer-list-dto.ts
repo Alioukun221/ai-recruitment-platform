@@ -3,14 +3,14 @@
 
 export interface PublicJobOfferListDto {
   applicationCount?: number;
-  dateLimite?: string;
-  datePublication?: string;
+  deadline?: string;
+  publicationDate?: string;
   description?: string;
-  experienceMin?: number;
+  minExperience?: number;
   id?: number;
   jobTitle?: string;
   jobType?: 'PER' | 'PATS' | 'CONTRACTUEL';
-  niveauEtudeRequis?: string;
+  requiredEducationLevel?: string;
   requiredSkills?: Array<string>;
-  typeContrat?: 'CDD' | 'CDI' | 'STAGE';
+  contractType?: 'CDD' | 'CDI' | 'STAGE';
 }

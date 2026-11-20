@@ -3,7 +3,7 @@
 
 export interface EvaluationResponseDto {
   comment?: string;
-  competenceScore?: number;
+  technicalSkillScore?: number;
   createdAt?: string;
   diplomaScore?: number;
   evaluatorId?: number;

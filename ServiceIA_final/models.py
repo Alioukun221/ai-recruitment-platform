@@ -79,7 +79,7 @@ class ResumeData(BaseModel):
     projects: List[Project] = Field(default_factory=list, description="Projets réalisés")
 
     # Compétences
-    competences: List[str] = Field(default_factory=list, description="Compétences techniques")
+    skills: List[str] = Field(default_factory=list, description="Technical skills")
     tools: List[str] = Field(default_factory=list, description="Outils et frameworks maîtrisés")
     soft_skills: List[str] = Field(default_factory=list, description="Compétences interpersonnelles")
 
@@ -125,7 +125,7 @@ class ScoringResult(BaseModel):
     """Modèle pour le résultat du scoring"""
     # Scores détaillés (0-100)
     score_global: float = Field(description="Score global de pertinence")
-    matching_competences: float = Field(description="Score de correspondance des compétences")
+    matching_skills: float = Field(description="Score de correspondance des compétences")
     matching_experience: float = Field(description="Score de correspondance de l'expérience")
     matching_diploma: float = Field( description="Score de correspondance du diplôme")
 
@@ -176,7 +176,7 @@ class ParseCVResponse(BaseModel):
             "example": {
                 "success": True,
                 "application_id": 25,
-                "parsed_data": {"full_name": "Moussa Fall", "competences": ["Python"]},
+                "parsed_data": {"full_name": "Moussa Fall", "skills": ["Python"]},
                 "error_message": None,
                 "processing_time": 2.5
             }
@@ -194,7 +194,7 @@ class ScoreCVRequest(BaseModel):
                 "application_id": 25,
                 "parsed_cv_data": {
                     "full_name": "Moussa Fall",
-                    "competences": ["Python", "Java"]
+                    "skills": ["Python", "Java"]
                 },
                 "job_offer": {
                     "job_id": 1,
@@ -219,7 +219,7 @@ class ScoreCVResponse(BaseModel):
                 "application_id": 25,
                 "scoring_result": {
                     "score_global": 85.5,
-                    "matching_competences": 90,
+                    "matching_skills": 90,
                     "recommendation": "EXCELLENT"
                 },
                 "error_message": None,

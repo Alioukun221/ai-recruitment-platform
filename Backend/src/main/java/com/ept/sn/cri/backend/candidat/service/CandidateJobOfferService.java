@@ -101,8 +101,8 @@ public class CandidateJobOfferService {
         if (jobOffer == null) {
             throw new ResourceNotFoundException("Offre d'emploi non trouvée ou non disponible");
         }
-        if (jobOffer.getDateLimite() != null) {
-            LocalDateTime dateLimite = jobOffer.getDateLimite()
+        if (jobOffer.getDeadline() != null) {
+            LocalDateTime deadline = jobOffer.getDeadline()
                     .toInstant()
                     .atZone(ZoneId.systemDefault())
                     .toLocalDate()
@@ -110,7 +110,7 @@ public class CandidateJobOfferService {
 
             LocalDateTime now = LocalDateTime.now();
 
-            if (dateLimite.isBefore(now)) {
+            if (deadline.isBefore(now)) {
                 throw new RuntimeException("La date limite pour cette offre est expirée");
             }
         }
@@ -140,7 +140,7 @@ public class CandidateJobOfferService {
         application.setNationality(dto.getNationality());
         application.setEducationalInstitution(dto.getEducationalInstitution());
         application.setYearOfGraduation(dto.getYearOfGraduation());
-        application.setMotivationEcole(dto.getMotivationEcole());
+        application.setSchoolMotivation(dto.getSchoolMotivation());
         application.setMotivationPosition(dto.getMotivationPosition());
         application.setAvailableImmediately(dto.isAvailableImmediately());
         application.setCertifyAccurate(dto.isCertifyAccurate());
@@ -272,14 +272,14 @@ public class CandidateJobOfferService {
                 .id(jobOffer.getId())
                 .jobTitle(jobOffer.getJobTitle())
                 .jobType(jobOffer.getJobType())
-                .typeContrat(jobOffer.getTypeContrat())
+                .contractType(jobOffer.getContractType())
                 .description(jobOffer.getDescription().length() > 200
                         ? jobOffer.getDescription().substring(0, 200) + "..."
                         : jobOffer.getDescription())
-                .niveauEtudeRequis(jobOffer.getNiveauEtudeRequis())
-                .experienceMin(jobOffer.getExperienceMin())
-                .datePublication(jobOffer.getDatePublication())
-                .dateLimite(jobOffer.getDateLimite())
+                .requiredEducationLevel(jobOffer.getRequiredEducationLevel())
+                .minExperience(jobOffer.getMinExperience())
+                .publicationDate(jobOffer.getPublicationDate())
+                .deadline(jobOffer.getDeadline())
                 .applicationCount(jobOffer.getApplications() != null ? jobOffer.getApplications().size() : 0)
                 .requiredSkills(skillsList)
                 .build();
@@ -290,13 +290,13 @@ public class CandidateJobOfferService {
                 .id(jobOffer.getId())
                 .jobTitle(jobOffer.getJobTitle())
                 .jobType(jobOffer.getJobType())
-                .typeContrat(jobOffer.getTypeContrat())
+                .contractType(jobOffer.getContractType())
                 .description(jobOffer.getDescription())
                 .requiredSkills(jobOffer.getRequiredSkills())
-                .niveauEtudeRequis(jobOffer.getNiveauEtudeRequis())
-                .experienceMin(jobOffer.getExperienceMin())
-                .datePublication(jobOffer.getDatePublication())
-                .dateLimite(jobOffer.getDateLimite())
+                .requiredEducationLevel(jobOffer.getRequiredEducationLevel())
+                .minExperience(jobOffer.getMinExperience())
+                .publicationDate(jobOffer.getPublicationDate())
+                .deadline(jobOffer.getDeadline())
                 .applicationCount(jobOffer.getApplications() != null ? jobOffer.getApplications().size() : 0)
                 .companyName(jobOffer.getCreatedBy().getDepartment())
                 .build();
@@ -311,7 +311,7 @@ public class CandidateJobOfferService {
                 .jobOfferId(application.getJobOffer().getId())
                 .jobTitle(application.getJobOffer().getJobTitle())
                 .jobType(application.getJobOffer().getJobType())
-                .typeContrat(application.getJobOffer().getTypeContrat())
+                .contractType(application.getJobOffer().getContractType())
                 .status(application.getApplicationStatus().name())
                 .submitDate(application.getSubmitDate())
                 .lastUpdateDate(application.getUpdateDate())

@@ -95,7 +95,7 @@
         </div>
 
         <div class="score-circle" [ngClass]="getScoreColor()">
-          <div class="score-value">{{ application.scoreIA || 0 }}</div>
+          <div class="score-value">{{ application.aiScore || 0 }}</div>
           <div class="score-label">{{ getScoreLabel() }}</div>
         </div>
       </div>
@@ -103,7 +103,7 @@
 
     <!-- Matching Overview -->
     <section class="matching-overview">
-      <div class="matching-card" [ngClass]="getMatchingClass(application.matchingCompetences)">
+      <div class="matching-card" [ngClass]="getMatchingClass(application.matchingSkills)">
         <div class="matching-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
@@ -111,11 +111,11 @@
         </div>
         <div class="matching-content">
           <div class="matching-label">Compétences</div>
-          <div class="matching-value">{{ application.matchingCompetences || 0 }}%</div>
-          <div class="matching-level">{{ getMatchingLevel(application.matchingCompetences) }}</div>
+          <div class="matching-value">{{ application.matchingSkills || 0 }}%</div>
+          <div class="matching-level">{{ getMatchingLevel(application.matchingSkills) }}</div>
         </div>
         <div class="matching-bar">
-          <div class="matching-fill" [style.width.%]="application.matchingCompetences || 0"></div>
+          <div class="matching-fill" [style.width.%]="application.matchingSkills || 0"></div>
         </div>
       </div>
 
@@ -178,7 +178,7 @@
         </section>
 
         <!-- IA Analysis -->
-        <section class="card" *ngIf="application.justificationIA">
+        <section class="card" *ngIf="application.aiJustification">
           <div class="card-header">
             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
@@ -186,10 +186,10 @@
               <line x1="12" y1="17" x2="12.01" y2="17"></line>
             </svg>
             <h2 class="card-title">Analyse IA</h2>
-            <span class="badge-ia">Score : {{ application.scoreIA || 0 }}%</span>
+            <span class="badge-ia">Score : {{ application.aiScore || 0 }}%</span>
           </div>
           <div class="card-content">
-            <div class="ia-justification">{{ application.justificationIA }}</div>
+            <div class="ia-justification">{{ application.aiJustification }}</div>
             <div class="ia-meta" *ngIf="application.evaluationCount">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M9 11l3 3L22 4"></path>

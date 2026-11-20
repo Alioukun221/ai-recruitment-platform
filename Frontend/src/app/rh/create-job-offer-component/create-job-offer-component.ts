@@ -21,12 +21,12 @@ export class CreateJobOfferComponent implements OnInit {
   jobOffer: CreateJobOfferDto = {
     jobTitle: '',
     jobType: 'PER',
-    typeContrat: 'CDI',
+    contractType: 'CDI',
     description: '',
     requiredSkills: '',
-    niveauEtudeRequis: '',
-    experienceMin: 0,
-    dateLimite: ''
+    requiredEducationLevel: '',
+    minExperience: 0,
+    deadline: ''
   };
 
   skillInput: string = '';
@@ -126,26 +126,26 @@ export class CreateJobOfferComponent implements OnInit {
       isValid = false;
     }
 
-    if (!this.jobOffer.niveauEtudeRequis) {
-      this.formErrors['niveauEtudeRequis'] = 'Le niveau d\'étude est obligatoire';
+    if (!this.jobOffer.requiredEducationLevel) {
+      this.formErrors['requiredEducationLevel'] = 'Le niveau d\'étude est obligatoire';
       isValid = false;
     }
 
-    if (this.jobOffer.experienceMin < 0) {
-      this.formErrors['experienceMin'] = 'L\'expérience minimale ne peut pas être négative';
+    if (this.jobOffer.minExperience < 0) {
+      this.formErrors['minExperience'] = 'L\'expérience minimale ne peut pas être négative';
       isValid = false;
     }
 
-    if (!this.jobOffer.dateLimite) {
-      this.formErrors['dateLimite'] = 'La date limite est obligatoire';
+    if (!this.jobOffer.deadline) {
+      this.formErrors['deadline'] = 'La date limite est obligatoire';
       isValid = false;
     } else {
-      const selectedDate = new Date(this.jobOffer.dateLimite);
+      const selectedDate = new Date(this.jobOffer.deadline);
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
       if (selectedDate < today) {
-        this.formErrors['dateLimite'] = 'La date limite ne peut pas être dans le passé';
+        this.formErrors['deadline'] = 'La date limite ne peut pas être dans le passé';
         isValid = false;
       }
     }

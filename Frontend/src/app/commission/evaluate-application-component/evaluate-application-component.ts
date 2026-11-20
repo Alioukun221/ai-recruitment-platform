@@ -35,7 +35,7 @@ export class EvaluateApplicationComponent implements OnInit {
   evaluation: CreateEvaluationDto = {
     diplomaScore: 0,
     experienceScore: 0,
-    competenceScore: 0,
+    technicalSkillScore: 0,
     motivationScore: 0,
     softSkillsScore: 0,
     comment: ''
@@ -123,7 +123,7 @@ export class EvaluateApplicationComponent implements OnInit {
     const scores = [
       { key: 'diplomaScore', value: this.evaluation.diplomaScore },
       { key: 'experienceScore', value: this.evaluation.experienceScore },
-      { key: 'competenceScore', value: this.evaluation.competenceScore },
+      { key: 'technicalSkillScore', value: this.evaluation.technicalSkillScore },
       { key: 'motivationScore', value: this.evaluation.motivationScore },
       { key: 'softSkillsScore', value: this.evaluation.softSkillsScore }
     ];
@@ -189,7 +189,7 @@ export class EvaluateApplicationComponent implements OnInit {
     return (
       this.evaluation.diplomaScore +
       this.evaluation.experienceScore +
-      this.evaluation.competenceScore +
+      this.evaluation.technicalSkillScore +
       this.evaluation.motivationScore +
       this.evaluation.softSkillsScore
     );

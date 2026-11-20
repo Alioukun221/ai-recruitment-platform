@@ -119,22 +119,22 @@ export class JobOfferDetailComponent implements OnInit {
     });
   }
 
-  getDaysRemaining(dateLimite?: string): number {
-    if (!dateLimite) return 0;
-    const limite = new Date(dateLimite);
+  getDaysRemaining(deadline?: string): number {
+    if (!deadline) return 0;
+    const limite = new Date(deadline);
     const today = new Date();
     const diffTime = limite.getTime() - today.getTime();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   }
 
-  isExpiringSoon(dateLimite?: string): boolean {
-    const days = this.getDaysRemaining(dateLimite);
+  isExpiringSoon(deadline?: string): boolean {
+    const days = this.getDaysRemaining(deadline);
     return days <= 7 && days >= 0;
   }
 
-  isExpired(dateLimite?: string): boolean {
-    const days = this.getDaysRemaining(dateLimite);
+  isExpired(deadline?: string): boolean {
+    const days = this.getDaysRemaining(deadline);
     return days < 0;
   }
 

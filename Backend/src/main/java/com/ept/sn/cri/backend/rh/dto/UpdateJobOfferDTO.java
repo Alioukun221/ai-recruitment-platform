@@ -1,6 +1,6 @@
 package com.ept.sn.cri.backend.rh.dto;
 
-import com.ept.sn.cri.backend.enums.ContratType;
+import com.ept.sn.cri.backend.enums.ContractType;
 import com.ept.sn.cri.backend.enums.JobStatus;
 import com.ept.sn.cri.backend.enums.JobType;
 import jakarta.validation.constraints.Future;
@@ -19,15 +19,15 @@ public class UpdateJobOfferDTO {
 
     private String jobTitle;
     private JobType jobType;
-    private ContratType typeContrat;
+    private ContractType contractType;
     private JobStatus jobStatus;
     private String description;
     private String requiredSkills;
-    private String niveauEtudeRequis;
+    private String requiredEducationLevel;
 
     @Min(value = 0, message = "L'expérience minimale ne peut pas être négative.")
-    private Integer experienceMin;
+    private Integer minExperience;
 
     @Future(message = "La date limite doit être dans le futur.")
-    private Date dateLimite;
+    private Date deadline;
 }

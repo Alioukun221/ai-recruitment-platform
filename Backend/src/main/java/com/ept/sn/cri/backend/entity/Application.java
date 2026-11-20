@@ -57,10 +57,10 @@ public class Application {
 
 
     @JsonIgnore
-    private Integer scoreIA;
+    private Integer aiScore;
 
     @JsonIgnore
-    private Integer matchingCompetences;
+    private Integer matchingSkills;
 
     @JsonIgnore
     private Integer matchingExperience;
@@ -70,7 +70,7 @@ public class Application {
 
     @JsonIgnore
     @Column(length = 2000)
-    private String justificationIA;
+    private String aiJustification;
 
     private String phoneNumber;
     private String nationality;
@@ -80,7 +80,7 @@ public class Application {
     private String yearOfGraduation;
 
     @Column(length = 2000)
-    private String motivationEcole;
+    private String schoolMotivation;
 
     @Column(length = 2000)
     private String motivationPosition;

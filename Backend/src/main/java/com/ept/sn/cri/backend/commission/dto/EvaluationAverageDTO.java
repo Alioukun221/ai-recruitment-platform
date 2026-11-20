@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class EvaluationAverageDTO {
 
-    private Double averageCompetenceScore;
+    private Double averageTechnicalSkillScore;
     private Double averageExperienceScore;
     private Double averageDiplomaScore;
     private Double averageMotivationScore;

@@ -16,7 +16,7 @@ public class CreateEvaluationDTO {
     @NotNull(message = "La note de compétence est obligatoire")
     @Min(value = 0, message = "La note doit être entre 0 et 5")
     @Max(value = 5, message = "La note doit être entre 0 et 5")
-    private Integer competenceScore;
+    private Integer technicalSkillScore;
 
     @NotNull(message = "La note d'expérience est obligatoire")
     @Min(value = 0, message = "La note doit être entre 0 et 5")
