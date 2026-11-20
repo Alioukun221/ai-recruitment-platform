@@ -5,9 +5,8 @@
 [![FastAPI](https://img.shields.io/badge/AI%20Service-FastAPI-teal.svg)](https://fastapi.tiangolo.com/)
 [![Mistral AI](https://img.shields.io/badge/AI%20Engine-Mistral%20AI-blue.svg)](https://mistral.ai/)
 [![MySQL](https://img.shields.io/badge/Database-MySQL%208-blue.svg)](https://www.mysql.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-An enterprise full-stack recruitment platform developed for **École Polytechnique de Thiès (EPT)**. It automates and streamlines the entire hiring cycle for teaching & research faculty (*PER*), administrative & technical staff (*PATS*), and contractual employees. The platform integrates an asynchronous AI-powered CV parsing and scoring engine leveraging **Mistral AI**.
+A full-stack recruitment platform developed as an academic capstone project (projet transversal de fin d'année) at **École Polytechnique de Thiès (EPT)** to evaluate concepts covered throughout the academic curriculum. The platform automates and streamlines the recruitment workflow for teaching & research faculty (*PER*), administrative & technical staff (*PATS*), and contractual roles, integrating an asynchronous AI-powered CV parsing and scoring engine leveraging **Mistral AI**.
 
 ---
 
@@ -34,7 +33,7 @@ An enterprise full-stack recruitment platform developed for **École Polytechniq
   - [AI Webhook & Processing](#ai-webhook--processing)
 - [Domain Enums & Data Models](#-domain-enums--data-models)
 - [Troubleshooting](#-troubleshooting)
-- [Authors & License](#-authors--license)
+- [Authors & Academic Context](#-authors--academic-context)
 
 ---
 
@@ -633,10 +632,8 @@ Backend has global CORS configuration enabled via `WebConfig.java`. Ensure Angul
 
 ---
 
-## 👨‍💻 Authors & License
+## 👨‍💻 Authors & Academic Context
 
-Developed as part of the digital transformation and recruitment management system for **École Polytechnique de Thiès (EPT)**:
+Developed as an academic capstone project (*projet transversal de fin d'année* evaluating all subjects covered throughout the year) at **École Polytechnique de Thiès (EPT)**:
 - **Mouhamadou Aliou BA** – [bmouhamadoualiou@ept.sn](mailto:bmouhamadoualiou@ept.sn)
 - **Fa Syaka Diouf** – [fsd@ept.sn](mailto:fsd@ept.sn)
-
-This project is licensed under the [MIT License](LICENSE).
